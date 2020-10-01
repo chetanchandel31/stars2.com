@@ -1,0 +1,133 @@
+body {
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(ellipse at bottom,#0d1E31, #000);
+    overflow: hidden;
+    touch-action: none;
+}
+
+.night {
+    
+    position: relative; /*flexbox alignment worked on this absolutely positioned child*/
+    width: 100%;
+    height: 100%;
+    transform: rotate(40deg);
+    
+}
+
+.star {
+    
+    border-radius: 999px;
+    position: absolute;
+    left: 50%; /*was positioned relative to closest non static parent*/
+    top: 50%;
+    height: 4px;
+    /* width: 100px;  */
+    filter: drop-shadow(0 0 6px #699BFF); /*blur actually spreads*/
+    background: linear-gradient(-45deg, #5F91FF, rgba(0, 0, 255, 0));
+    animation: tail 3s ease-in-out infinite,
+               falling 3s ease-in-out infinite;
+}
+
+@keyframes tail{
+    0%{
+        width: 0px;
+    }
+    50%{
+        width: 100px;
+    }
+    100%{
+        width: 0;
+    }
+}
+
+@keyframes falling{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(300px);
+    }
+}
+
+.mukka {
+    position: absolute;
+    top: calc(50% - 2px);
+    right: 0;
+    
+    
+    
+    transform: translateX(10%) translateY(-50%) rotate(-40deg);
+    filter: opacity(80%);
+    animation: shining 3s ease-in-out infinite;
+
+}
+
+@keyframes shining{
+    0%{
+        height: 0px;
+    }
+
+    30%{
+        height: 30px;
+    }
+
+    100%{
+        height: 0;
+    }
+
+
+}
+
+.star:nth-child(1){ /*".night .star:nth-child(1)" would target same part*/
+    top: calc(50% - 100px);
+    left: calc(50% - 250px);
+    animation-delay: 1.4s;
+  }
+
+.mukka:nth-child(1){
+    animation-delay: 1.4s;
+}
+
+.star:nth-child(2){ 
+    top: calc(50% - 50px);
+    left: calc(50% - 200px);
+    animation-delay: 1s;
+  }
+
+.mukka:nth-child(2){
+    animation-delay: 1s;
+}
+
+.star:nth-child(3){ 
+    top: calc(50% - 0px);
+    left: calc(50% - 150px);
+    animation-delay: 1.4s;
+  }
+
+.mukka:nth-child(3){
+    animation-delay: 1.4s;
+}
+
+.star:nth-child(4){ 
+    top: calc(50% - -50px);
+    left: calc(50% - 200px);
+    animation-delay: 1s;
+  }
+
+.mukka:nth-child(4){
+    animation-delay: 1s;
+}
+
+.star:nth-child(5){ 
+    top: calc(50% - -100px);
+    left: calc(50% - 250px);
+    animation-delay: 1.4s;
+  }
+
+.mukka:nth-child(5){
+    animation-delay: 1.4s;
+}
